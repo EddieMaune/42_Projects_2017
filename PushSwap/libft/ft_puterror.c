@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_puterror.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/05 00:23:52 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/07 12:07:12 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/07 14:00:02 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/07 14:22:15 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void		ft_puterror(char const *error)
 {
-	int i;
-	int sign;
-	int result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == ' ' || (str[i] <= '\r' && str[i] >= '\t'))
-		i++;
-	if (str[i] == '-')
+	while (*error)
 	{
-		sign = -1;
-		i++;
+		write(2, error, 1);
+		error++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-	{
-		result = result * 10 + (str[i] - 48);
-		i++;
-	}
-	return (result * sign);
 }

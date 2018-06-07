@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/05 00:23:52 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/07 12:07:12 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/07 16:26:27 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int		ft_atoi(const char *str)
+int		main(int argc, char **argv)
 {
-	int i;
-	int sign;
-	int result;
+	t_stack		*a;
+	t_stack		*b;
+	int			i;
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == ' ' || (str[i] <= '\r' && str[i] >= '\t'))
-		i++;
-	if (str[i] == '-')
+	i = 1;
+	a = NULL;
+	b = NULL;
+	if (argc > 1)
 	{
-		sign = -1;
-		i++;
+		check_if_args_are_ints(argc, argv);
+		a = store_arguments(a, argc, argv);
+		while (a)
+		{
+			printf("%d\n", a->num);
+			a = a->next;
+		}
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-	{
-		result = result * 10 + (str[i] - 48);
-		i++;
-	}
-	return (result * sign);
+	else
+		return (0);
+	return (0);
 }

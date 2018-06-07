@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   check_arguments.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/05 00:23:52 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/07 12:07:12 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/07 14:55:10 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/07 15:32:36 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int		ft_atoi(const char *str)
+static int		arguments_are_integers(int argc, char **argv)
 {
-	int i;
-	int sign;
-	int result;
+	int			i;
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == ' ' || (str[i] <= '\r' && str[i] >= '\t'))
-		i++;
-	if (str[i] == '-')
+	i = 1;
+	while (i < argc)
 	{
-		sign = -1;
+		if (!ft_isnum(argv[i]))
+			return (0);
+		if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
+			return (0);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
+	return (1);
+}
+
+void			check_if_args_are_ints(int argc, char	**argv)
+{
+	if (!arguments_are_integers(argc, argv))
 	{
-		result = result * 10 + (str[i] - 48);
-		i++;
+		ft_puterror("Error");
+		exit(0);
 	}
-	return (result * sign);
 }

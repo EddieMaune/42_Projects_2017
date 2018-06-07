@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_isnum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/06 14:35:55 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/07 12:34:38 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/07 12:45:21 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(void)
+int		ft_isnum(char *number)
 {
-	return (0);
+	int		i;
+
+	i = 0;
+	if (ft_isdigit(number[i]) || number[i] == '-')
+	{
+		i++;
+		while (number[i])
+		{
+			if (!ft_isdigit(number[i]))
+				return (0);
+			i++;
+		}
+		return (1);
+	}
+	else
+		return (0);
 }

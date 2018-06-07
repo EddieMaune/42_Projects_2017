@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 07:47:23 by emaune            #+#    #+#             */
-/*   Updated: 2018/05/23 15:22:55 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/07 14:22:02 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct		s_lcat
 void				ft_putchar(char c);
 void				ft_putstr(char const *str);
 void				ft_putnbr(int n);
+void				ft_puterror(char const *error);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_bzero(void *str, unsigned int n);
 void				*ft_memset(void *str, int c, unsigned int n);
@@ -88,6 +89,7 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isspace(int c);
+int					ft_isnum(char *number);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
