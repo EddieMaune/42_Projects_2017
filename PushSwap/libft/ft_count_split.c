@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   count_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:36:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/08 15:44:53 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/08 15:15:01 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/08 15:20:15 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-
-typedef struct		s_stack
+int		ft_count_split(char **split)
 {
-	int				num;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}					t_stack;
+	int		i;
 
-void				check_if_args_are_ints(int argc, char **argv, int ais);
-t_stack				*store_arguments(t_stack *a, int argc, char **argv, int ais);
-
-#endif
+	i = 0;
+	while (split[i])
+		i++;
+	return (i);
+}
