@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 07:47:23 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/07 14:22:02 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/08 15:18:53 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isspace(int c);
 int					ft_isnum(char *number);
+int					ft_count_split(char **split);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
