@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/05 02:50:41 by emaune            #+#    #+#             */
+/*   Updated: 2017/07/27 17:42:50 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void		*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	size_t	i;
+	char	*tempdest;
+	char	*tempsrc;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	tempdest = (char *)dest;
+	tempsrc = (char *)src;
+	if (dest > src)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
+		while (n > i)
 		{
-			printf("%d\n", a->num);
-			a = a->next;
+			n--;
+			tempdest[n] = tempsrc[n];
 		}
 	}
 	else
-		return (0);
-	return (0);
+		ft_memcpy(dest, src, n);
+	return (dest);
 }

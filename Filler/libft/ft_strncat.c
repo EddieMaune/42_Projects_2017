@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/07 10:58:41 by emaune            #+#    #+#             */
+/*   Updated: 2017/06/09 17:14:53 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	size_t	i;
+	char	*x;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	x = &dest[ft_strlen(dest)];
+	while (i < n && src[i] != '\0')
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		x[i] = src[i];
+		i++;
 	}
-	else
-		return (0);
-	return (0);
+	x[i] = '\0';
+	return (dest);
 }

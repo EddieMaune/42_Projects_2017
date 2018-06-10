@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/11 16:41:20 by emaune            #+#    #+#             */
+/*   Updated: 2017/08/07 10:31:47 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	ft_memdel(void **ap)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
-
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	if (ap)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		if (!*ap)
+			free(*ap);
+		*ap = NULL;
 	}
-	else
-		return (0);
-	return (0);
 }

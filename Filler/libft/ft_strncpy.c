@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/06 21:40:34 by emaune            #+#    #+#             */
+/*   Updated: 2017/07/23 13:37:31 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+char		*ft_strncpy(char *dest, const char *src, size_t len)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	size_t i;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	while (i < len && src[i] != '\0')
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		dest[i] = src[i];
+		i++;
 	}
-	else
-		return (0);
-	return (0);
+	while (i < len)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

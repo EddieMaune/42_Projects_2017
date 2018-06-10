@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/05 07:55:52 by emaune            #+#    #+#             */
+/*   Updated: 2017/06/08 23:00:47 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void		*ft_memchr(const void *str, unsigned int c, unsigned int n)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	unsigned int	i;
+	char			*nstr;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	nstr = (char*)str;
+	while (i < n)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		if (*(nstr + i) == (char)c)
+			return ((char *)str + i);
+		i++;
 	}
-	else
-		return (0);
-	return (0);
+	return (NULL);
 }

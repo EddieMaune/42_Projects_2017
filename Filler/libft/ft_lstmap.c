@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/08/07 11:49:43 by emaune            #+#    #+#             */
+/*   Updated: 2017/10/17 16:46:32 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	t_list *temp;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	if (!f || !lst)
+		return (NULL);
+	if (!(temp = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	temp = f(lst);
+	if (lst->next != NULL)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		temp->next = ft_lstmap(lst->next, f);
 	}
-	else
-		return (0);
-	return (0);
+	return (temp);
 }

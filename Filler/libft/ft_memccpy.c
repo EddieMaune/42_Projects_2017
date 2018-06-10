@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/06 12:54:45 by emaune            #+#    #+#             */
+/*   Updated: 2017/06/06 17:17:26 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	*ft_memccpy(void *dest, const void *src, int c, unsigned int n)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	unsigned int	i;
+	char			*x;
+	char			*y;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	x = (char *)src;
+	y = (char *)dest;
+	while (i < n)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
+		y[i] = x[i];
+		if (x[i] == c)
 		{
-			printf("%d\n", a->num);
-			a = a->next;
+			y[i] = x[i];
+			return (&y[i + 1]);
 		}
+		i++;
 	}
-	else
-		return (0);
-	return (0);
+	return (NULL);
 }

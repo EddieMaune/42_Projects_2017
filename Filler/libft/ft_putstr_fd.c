@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/07/06 16:40:25 by emaune            #+#    #+#             */
+/*   Updated: 2017/07/22 17:41:03 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void		ft_putstr_fd(char const *str, int fd)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
-
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	if (str)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
+		while (*str)
 		{
-			printf("%d\n", a->num);
-			a = a->next;
+			ft_putchar_fd(*str, fd);
+			str++;
 		}
 	}
-	else
-		return (0);
-	return (0);
 }

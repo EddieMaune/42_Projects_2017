@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/11 17:33:11 by emaune            #+#    #+#             */
+/*   Updated: 2017/06/11 18:04:46 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int		main(int argc, char **argv)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
-
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	if (s && f)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
+		while (*s)
 		{
-			printf("%d\n", a->num);
-			a = a->next;
+			f(s);
+			s++;
 		}
 	}
-	else
-		return (0);
-	return (0);
 }

@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/08/04 16:36:50 by emaune            #+#    #+#             */
+/*   Updated: 2017/08/04 16:43:17 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
-
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	if (s1 && s2)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		if (!ft_strncmp(s1, s2, n))
+			return (1);
 	}
-	else
-		return (0);
 	return (0);
 }

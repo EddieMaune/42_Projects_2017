@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/02 08:53:29 by emaune            #+#    #+#             */
+/*   Updated: 2017/06/06 22:02:33 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int		main(int argc, char **argv)
+void		*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	char			*tempdest;
+	char			*tempsrc;
+	unsigned int	i;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	tempdest = (char *)dest;
+	tempsrc = (char *)src;
+	while (i < n)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		tempdest[i] = tempsrc[i];
+		i++;
 	}
-	else
-		return (0);
-	return (0);
+	return (dest);
 }

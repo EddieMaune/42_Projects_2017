@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/07/31 16:53:16 by emaune            #+#    #+#             */
+/*   Updated: 2017/08/04 17:02:34 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+char		*ft_strmap(char const *s, char (*f)(char))
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	char	*result;
+	int		i;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	if ((result = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)) == NULL)
+		return (NULL);
+	if (s && f && result)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
+		while (s[i])
 		{
-			printf("%d\n", a->num);
-			a = a->next;
+			result[i] = f(s[i]);
+			i++;
 		}
+		result[i] = '\0';
 	}
-	else
-		return (0);
-	return (0);
+	return (result);
 }

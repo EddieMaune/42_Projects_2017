@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/08/07 11:36:59 by emaune            #+#    #+#             */
+/*   Updated: 2017/08/07 14:02:33 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	t_list *temp;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	temp = lst;
+	while (temp)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		f(temp);
+		temp = temp->next;
 	}
-	else
-		return (0);
-	return (0);
+	temp = NULL;
 }

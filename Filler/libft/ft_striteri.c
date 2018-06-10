@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/06/11 18:20:46 by emaune            #+#    #+#             */
+/*   Updated: 2017/08/07 16:36:40 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	unsigned int x;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	x = 0;
+	if (s && f)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
+		while (*s)
 		{
-			printf("%d\n", a->num);
-			a = a->next;
+			f(x, s);
+			s++;
+			x++;
 		}
 	}
-	else
-		return (0);
-	return (0);
 }

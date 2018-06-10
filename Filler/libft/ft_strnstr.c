@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 14:58:12 by emaune           ###   ########.fr       */
+/*   Created: 2017/08/01 15:39:46 by emaune            #+#    #+#             */
+/*   Updated: 2017/08/07 15:00:29 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+char		*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	t_stack		*a;
-	t_stack		*b;
-	int			i;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	i = 1;
-	a = NULL;
-	b = NULL;
-	if (argc > 1)
+	i = 0;
+	if (ft_strlen(little) == 0)
+		return ((char*)big);
+	while (big[i] && i < len)
 	{
-		check_if_args_are_ints(argc, argv);
-		a = store_arguments(a, argc, argv);
-		while (a)
-		{
-			printf("%d\n", a->num);
-			a = a->next;
-		}
+		j = 0;
+		k = i;
+		while (little[j] && k < len)
+			if (little[j] == big[k])
+			{
+				j++;
+				k++;
+			}
+			else
+				break ;
+		if (j == ft_strlen(little))
+			return ((char*)big + i);
+		i++;
 	}
-	else
-		return (0);
-	return (0);
+	return (NULL);
 }
