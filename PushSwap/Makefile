@@ -6,7 +6,7 @@
 #    By: emaune <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/17 16:42:04 by emaune            #+#    #+#              #
-#    Updated: 2018/06/07 16:27:13 by emaune           ###   ########.fr        #
+#    Updated: 2018/06/10 16:41:56 by emaune           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ CHECKER = checker
 
 PUSH_SWAP = push_swap
 
-SRC_1 = main_checker.c check_arguments.c store_arguments.c\
+SRC_1 = main_checker.c check_arguments.c store_arguments.c init_stacks.c\
+		print_stack.c
 
 SRC_2 = main_push_swap.c
 

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 16:42:51 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/11 10:53:45 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/11 12:02:01 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FILLER_H
+# define FILLER_H
 
-int			main(int argc, char **argv)
+# include "libft/libft.h"
+
+typedef struct		s_input
 {
-	t_main	var;
+	char			*line;
+	struct s_input	*next;
+	struct s_input	*prev;
+}					t_input;
 
-	init_stacks(argc, argv, &var);
-	print_stack(var.a);
-	return (0);
-}
+
+#endif
