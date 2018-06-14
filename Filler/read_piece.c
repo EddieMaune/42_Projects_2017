@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_piece.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/11 10:53:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/14 10:53:38 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/13 11:56:25 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/14 10:55:56 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int			main(void)
+void			read_piece(t_main *var)
 {
-	t_main	var;
-
-	var.fd = open("text", O_RDWR);
-	var.board = NULL;
-	var.piece = NULL;
-	var.read_board = 0;
-	var.read_piece = 0;
-	set_token(&var);
-	read_and_play(&var);
-	return (0);
+	if (ft_strstr(var->line, "Piece"))
+	{
+		var->piece_dimensions = get_piece_dimensions(var->line);
+		malloc_piece(var);
+		free(var->line);
+		update_piece(var);
+		var->read_piece = 1;
+	}
 }

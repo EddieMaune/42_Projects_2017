@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   update_piece.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/11 10:53:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/14 10:53:38 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/13 09:51:18 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/13 11:44:13 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int			main(void)
+char		**update_piece(t_main *var)
 {
-	t_main	var;
+	int		y;
 
-	var.fd = open("text", O_RDWR);
-	var.board = NULL;
-	var.piece = NULL;
-	var.read_board = 0;
-	var.read_piece = 0;
-	set_token(&var);
-	read_and_play(&var);
-	return (0);
+	y = 0;
+	while (y < var->piece_dimensions.rows)
+	{
+		get_next_line(0, &var->line);
+		ft_strcpy(var->piece[y], var->line);
+		ft_putendl_fd(var->piece[y], var->fd);
+		free(var->line);
+		y++;
+	}
+	return (var->piece);
 }

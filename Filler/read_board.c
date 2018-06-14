@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_board.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/11 10:53:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/14 10:53:38 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/13 11:46:51 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/14 10:56:18 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int			main(void)
+void			read_board(t_main *var)
 {
-	t_main	var;
-
-	var.fd = open("text", O_RDWR);
-	var.board = NULL;
-	var.piece = NULL;
-	var.read_board = 0;
-	var.read_piece = 0;
-	set_token(&var);
-	read_and_play(&var);
-	return (0);
+	if (ft_strstr(var->line, "Plateau"))
+		var->board_dimensions = get_board_dimensions(var->line);
+	if (!var->board)
+		malloc_board(var);
+	if (var->line[0] == ' ')
+	{
+		free(var->line);
+		update_board(var);
+		var->read_board = 1;
+	}
 }

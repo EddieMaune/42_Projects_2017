@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_token.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/11 10:53:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/14 10:53:38 by emaune           ###   ########.fr       */
+/*   Created: 2018/06/12 12:11:14 by emaune            #+#    #+#             */
+/*   Updated: 2018/06/13 16:01:41 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int			main(void)
+void		set_token(t_main *var)
 {
-	t_main	var;
-
-	var.fd = open("text", O_RDWR);
-	var.board = NULL;
-	var.piece = NULL;
-	var.read_board = 0;
-	var.read_piece = 0;
-	set_token(&var);
-	read_and_play(&var);
-	return (0);
+	get_next_line(0, &var->line);
+	if (ft_strstr(var->line, "$$$"))
+	{
+		if (ft_strstr(var->line, "p1"))
+			var->token = 'O';
+		else
+			var->token = 'X';
+	}
+	free(var->line);
+	var->line = NULL;
 }
