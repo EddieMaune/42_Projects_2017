@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 15:24:18 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/14 11:04:12 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/15 10:37:42 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ void		read_and_play(t_main *var)
 		read_piece(var);
 		if (var->read_board && var->read_piece)
 		{
-			find_valid_moves(var);
+			if(find_valid_moves(var) > 1)
+				select_best_move(var);
 			place_piece(var);
 			var->read_board = 0;
 			var->read_piece = 0;
+			var->possible_moves = NULL;
 		}
 	//	var->read_board = 0;
 	//	var->read_piece = 0;

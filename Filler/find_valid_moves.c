@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 14:37:35 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/13 16:42:26 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/15 12:33:18 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ static int			is_opponents_token(char cell, t_main *var)
 	return (0);
 }
 
+static int			piece_rows_readjustment(t_main *var)
+{
+	int				i;
+
+	i = 0;
+	while (i < var->piece_dimensions.rows)
+	{
+		if (ft_strchr(var->piece[i], '*'))
+				break	;
+		i++;
+	}
+	return (i);
+}
+
 static int			is_valid(int y, int x, t_main *var)
 {
 	int				covered_cells;
@@ -35,6 +49,11 @@ static int			is_valid(int y, int x, t_main *var)
 
 	yb = y;
 	yp = 0;
+	if (yb < 0)
+	{
+		yp = yp + yb * (-1);
+		yb = 0;
+	}
 	covered_cells = 0;
 	while (yp < var->piece_dimensions.rows)
 	{
@@ -57,12 +76,15 @@ static int			is_valid(int y, int x, t_main *var)
 	return (0);
 }
 
-void		find_valid_moves(t_main *var)
+int			find_valid_moves(t_main *var)
 {
 	int		y;
 	int		x;
+	int		moves;
 
 	y = 0;
+	moves = 0;
+	y -= piece_rows_readjustment(var);
 	while (y < var->board_dimensions.rows - var->piece_dimensions.rows + 1)
 	{
 		x = 0;
@@ -70,11 +92,33 @@ void		find_valid_moves(t_main *var)
 		{
 			if (is_valid(y, x, var))
 			{
+				if (!var->possible_moves)
+				{
+					var->possible_moves = (t_coordinates*)malloc(sizeof(t_coordinates));
+					var->index = var->possible_moves;
+					var->possible_moves->prev = NULL;
+					var->possible_moves->next = NULL;
+					var->possible_moves->x = x;
+					var->possible_moves->y = y;
+				}
+				else
+				{
+					var->index->next = (t_coordinates*)malloc(sizeof(t_coordinates));
+					var->temp = var->index;
+					var->index = var->index->next;
+					var->index->prev = var->temp;
+					var->index->x = x;
+					var->index->y = y;
+					var->index->next = NULL;
+				}
 				var->placement.x = x;
 				var->placement.y = y;
+				moves++;
 			}
 			x++;
 		}
 		y++;
-	}		
+	}
+	var->index = var->possible_moves;
+	return (moves);
 }

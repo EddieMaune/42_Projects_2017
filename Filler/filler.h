@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 10:53:45 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/14 11:22:57 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/15 13:11:40 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ typedef struct				s_main
 	t_coordinates			placement;
 	int						read_board;
 	int						read_piece;
+	t_coordinates			*possible_moves;
+	t_coordinates			*index;
+	t_coordinates			*temp;
 }							t_main;
 
 void						set_token(t_main *var);
@@ -53,6 +56,11 @@ char						**update_board(t_main *var);
 t_dimensions				get_piece_dimensions(char *line);
 char						**malloc_piece(t_main *var);
 char						**update_piece(t_main *var);
-void						find_valid_moves(t_main *var);
+int							find_valid_moves(t_main *var);
 void						place_piece(t_main *var);
+t_coordinates				*select_best_move(t_main *var);
+t_coordinates				*go_northeast(t_main *var);
+t_coordinates				*min_y(t_main *var);
+t_coordinates				*min_x(t_main *var);
+t_coordinates				*max_x(t_main *var);
 #endif
