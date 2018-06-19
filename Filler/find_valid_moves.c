@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 14:37:35 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/15 12:33:18 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/19 10:06:54 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,6 @@ static int			is_opponents_token(char cell, t_main *var)
 	return (0);
 }
 
-static int			piece_rows_readjustment(t_main *var)
-{
-	int				i;
-
-	i = 0;
-	while (i < var->piece_dimensions.rows)
-	{
-		if (ft_strchr(var->piece[i], '*'))
-				break	;
-		i++;
-	}
-	return (i);
-}
-
 static int			is_valid(int y, int x, t_main *var)
 {
 	int				covered_cells;
@@ -55,10 +41,15 @@ static int			is_valid(int y, int x, t_main *var)
 		yb = 0;
 	}
 	covered_cells = 0;
-	while (yp < var->piece_dimensions.rows)
+	while (yp < var->piece_dimensions.rows )
 	{
 		xb = x;
 		xp = 0;
+		if (xb < 0)
+		{
+			xp = xp + xb * (-1);
+			xb = 0;
+		}
 		while (xp < var->piece_dimensions.columns)
 		{
 			if (is_token(var->board[yb][xb], var) && var->piece[yp][xp] == '*')
@@ -88,6 +79,7 @@ int			find_valid_moves(t_main *var)
 	while (y < var->board_dimensions.rows - var->piece_dimensions.rows + 1)
 	{
 		x = 0;
+		x -= piece_columns_readjustment(var);
 		while (x < var->board_dimensions.columns - var->piece_dimensions.columns + 1)
 		{
 			if (is_valid(y, x, var))
