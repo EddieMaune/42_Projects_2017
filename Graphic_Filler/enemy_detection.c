@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 12:09:35 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/26 14:01:05 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/26 14:11:39 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			enemy_detection(t_main *var, t_coordinates	*vector)
 	int		flag;
 
 	radius = 1;
-	while (vector->x + radius < var->board_dimensions.columns || vector->y + radius < var->board_dimensions.rows)
+	while ((vector->x + radius < var->board_dimensions.columns || vector->y + radius < var->board_dimensions.rows) && (vector->x - radius > 0 || vector->y - radius > 0))
 	{
 		flag = 0;
 		y = vector->y - radius;

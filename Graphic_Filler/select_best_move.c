@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 13:33:38 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/26 13:58:01 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/26 15:07:42 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,12 @@ t_coordinates				*select_best_move(t_main *var)
 	}
 	else if (var->token == 'O' && var->board_dimensions.columns > 40)
 	{
-	/*	if (ft_strchr(var->board[0], 'O'))
-			best_move = min_x(var);
+		if (ft_strchr(var->board[0], 'O'))
+			best_move = lowest_distance(var);
 		else
-			best_move = min_y(var);*/
-		best_move = lowest_distance(var);
+		best_move = min_y(var);
+	//	if (ft_strchr(var->board[var->board_dimensions.rows - 1], 'O'))
+	//		best_move = lowest_distance(var);
 		print_pm(var);
 		var->placement.x = best_move->x;
 		var->placement.y = best_move->y;
@@ -98,11 +99,11 @@ t_coordinates				*select_best_move(t_main *var)
 	}
 	if (var->token == 'X' && var->board_dimensions.columns <= 40)
 	{
-		if (ft_strchr(var->board[0], 'X'))
-			best_move = min_x(var);
-		else
-			best_move = min_y(var);
-//		best_move = lowest_distance(var);
+	//	if (ft_strchr(var->board[0], 'X'))
+	//		best_move = min_x(var);
+	//	else
+	//		best_move = min_y(var);
+		best_move = lowest_distance(var);
 		print_pm(var);
 		var->placement.x = best_move->x;
 		var->placement.y = best_move->y;
@@ -115,15 +116,15 @@ t_coordinates				*select_best_move(t_main *var)
 	}
 	else if (var->token == 'X' && var->board_dimensions.columns > 40)
 	{
-		if (var->board[2][var->board_dimensions.columns - 1] != var->token)
+/*		if (var->board[2][var->board_dimensions.columns - 1] != var->token)
 		{
 			best_move = go_northeast(var);
 		}
-		else
-			best_move = max_x(var);
-		if (var->board[var->board_dimensions.rows - 1][var->board_dimensions.columns - 1] == var->token)
-			best_move = min_x(var);
-	//	best_move = lowest_distance(var);
+	:	else
+			best_move = max_x(var);*/
+	//	if (var->board[var->board_dimensions.rows - 1][var->board_dimensions.columns - 1] == var->token)
+	//		best_move = min_x(var);
+		best_move = lowest_distance(var);
 		print_pm(var);
 		var->placement.x = best_move->x;
 		var->placement.y = best_move->y;

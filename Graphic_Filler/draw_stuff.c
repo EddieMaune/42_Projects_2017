@@ -76,8 +76,8 @@ void	draw_grid(SDL_Renderer *ren, double rows, double columns)
 		{
 			SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
 			draw_rect(ren, x + 1, y + 1, 700/columns - 2, 900/rows - 4);
-			SDL_SetRenderDrawColor(ren, 255, 255, 255, 255);
-			fill_rect(ren, x, y, 700/columns, 900/columns);
+			SDL_SetRenderDrawColor(ren, 195, 195, 195, 255);
+			fill_rect(ren, x, y, 700/columns, 900/rows);
 			x += 700 / columns;
 			x2++;
 		}

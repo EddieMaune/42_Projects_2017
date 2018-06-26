@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 10:53:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/25 11:54:14 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/26 14:42:55 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int					main(void)
 	t_main			var;
 
 	var.ren = init("Filler");
-	SDL_SetRenderDrawColor(var.ren, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(var.ren, 0, 0, 0, 255);
 	SDL_RenderClear(var.ren);
 	SDL_RenderPresent(var.ren);
 	usleep(2000000);

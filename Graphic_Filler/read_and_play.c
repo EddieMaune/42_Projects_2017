@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 15:24:18 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/26 10:05:32 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/26 14:34:38 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		read_and_play(t_main *var)
 		{
 			if(find_valid_moves(var) > 1)
 				select_best_move(var);
-			SDL_SetRenderDrawColor(var->ren, 255, 255, 255, 255);
+			SDL_SetRenderDrawColor(var->ren, 0, 0, 0, 255);
 			SDL_RenderClear(var->ren);
 			SDL_SetRenderDrawColor(var->ren, 0, 0, 0, 255);
 			draw_grid(var->ren, var->board_dimensions.rows, var->board_dimensions.columns);
