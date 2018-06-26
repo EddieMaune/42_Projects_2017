@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 14:37:35 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/19 10:06:54 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/25 13:22:23 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int			find_valid_moves(t_main *var)
 					var->possible_moves->next = NULL;
 					var->possible_moves->x = x;
 					var->possible_moves->y = y;
+					var->possible_moves->distance = enemy_detection(var, var->possible_moves);
 				}
 				else
 				{
@@ -101,6 +102,7 @@ int			find_valid_moves(t_main *var)
 					var->index->prev = var->temp;
 					var->index->x = x;
 					var->index->y = y;
+					var->index->distance = enemy_detection(var, var->index);
 					var->index->next = NULL;
 				}
 				var->placement.x = x;

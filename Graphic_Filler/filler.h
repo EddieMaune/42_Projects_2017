@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 10:53:45 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/24 15:04:34 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/25 13:24:42 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct				s_coordinates
 {
 	int						x;
 	int						y;
+	int						distance;
 	struct s_coordinates	*next;
 	struct s_coordinates	*prev;
 }							t_coordinates;
@@ -64,6 +65,7 @@ int							find_valid_moves(t_main *var);
 int							piece_rows_readjustment(t_main *var);
 int							piece_columns_readjustment(t_main *var);
 void						place_piece(t_main *var);
+int							enemy_detection(t_main *var, t_coordinates *vector);
 t_coordinates				*select_best_move(t_main *var);
 t_coordinates				*go_northeast(t_main *var);
 t_coordinates				*min_y(t_main *var);

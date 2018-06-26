@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 10:53:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/24 15:43:50 by emaune           ###   ########.fr       */
+/*   Updated: 2018/06/25 11:54:14 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 SDL_Renderer    	*init(char *title)
 {
     SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_Window *win = SDL_CreateWindow(title, 100, 100, 700, 900, SDL_WINDOW_SHOWN);
+    SDL_Window *win = SDL_CreateWindow(title, 600, 50, 700, 900, SDL_WINDOW_SHOWN);
     SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
     SDL_RenderClear(ren);
