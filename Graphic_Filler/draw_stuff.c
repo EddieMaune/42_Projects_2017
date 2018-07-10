@@ -51,10 +51,11 @@ void		draw_rect(SDL_Renderer *ren, int x, int y, int w, int h)
 void		fill_rect(SDL_Renderer *ren, int x, int y, int w, int h)
 {
 	int     x2;
-	x2 = x + 2;
+
+	x2 = x + 1;
 	while (x2 <= x + w - 2)
 	{
-		draw_line(ren, x2, y + 2, x2, y + h - 3);
+		draw_line(ren, x2, y + 1, x2, y + h - 2 );
 		x2++;
 	}
 }
@@ -75,7 +76,7 @@ void	draw_grid(SDL_Renderer *ren, double rows, double columns)
 		while (x < 700 && x2 < columns)
 		{
 			SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
-			draw_rect(ren, x + 1, y + 1, 700/columns - 2, 900/rows - 4);
+			draw_rect(ren, x, y, 700/columns, 900/rows);
 			SDL_SetRenderDrawColor(ren, 195, 195, 195, 255);
 			fill_rect(ren, x, y, 700/columns, 900/rows);
 			x += 700 / columns;

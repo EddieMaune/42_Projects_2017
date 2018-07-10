@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 14:37:35 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/25 13:22:23 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/09 11:39:24 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int			is_valid(int y, int x, t_main *var)
 		yb = 0;
 	}
 	covered_cells = 0;
-	while (yp < var->piece_dimensions.rows )
+	while (yp < var->piece_dimensions.rows - var->empty_piece_rows)
 	{
 		xb = x;
 		xp = 0;
@@ -50,7 +50,7 @@ static int			is_valid(int y, int x, t_main *var)
 			xp = xp + xb * (-1);
 			xb = 0;
 		}
-		while (xp < var->piece_dimensions.columns)
+		while (xp < var->piece_dimensions.columns - var->empty_piece_columns)
 		{
 			if (is_token(var->board[yb][xb], var) && var->piece[yp][xp] == '*')
 			   	covered_cells++;
@@ -71,16 +71,20 @@ int			find_valid_moves(t_main *var)
 {
 	int		y;
 	int		x;
+	//int		empty_piece_columns;
+	//int		empty_piece_rows;
 	int		moves;
 
 	y = 0;
 	moves = 0;
 	y -= piece_rows_readjustment(var);
-	while (y < var->board_dimensions.rows - var->piece_dimensions.rows + 1)
+	var->empty_piece_columns = piece_columns_readjustment_2(var);
+	var->empty_piece_rows = piece_rows_readjustment_2(var);
+	while (y < var->board_dimensions.rows - var->piece_dimensions.rows + var->empty_piece_rows + 1)
 	{
 		x = 0;
 		x -= piece_columns_readjustment(var);
-		while (x < var->board_dimensions.columns - var->piece_dimensions.columns + 1)
+		while (x < var->board_dimensions.columns - var->piece_dimensions.columns + var->empty_piece_columns + 1)
 		{
 			if (is_valid(y, x, var))
 			{

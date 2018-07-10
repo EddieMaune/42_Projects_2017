@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 10:53:45 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/25 13:24:42 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/09 12:12:22 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct				s_main
 	SDL_Renderer			*ren;
 	SDL_Event				event;
 	int						quit;
+	int						empty_piece_columns;
+	int						empty_piece_rows;
 }							t_main;
 
 void						set_token(t_main *var);
@@ -64,6 +66,8 @@ char						**update_piece(t_main *var);
 int							find_valid_moves(t_main *var);
 int							piece_rows_readjustment(t_main *var);
 int							piece_columns_readjustment(t_main *var);
+int							piece_rows_readjustment_2(t_main *var);
+int							piece_columns_readjustment_2(t_main *var);
 void						place_piece(t_main *var);
 int							enemy_detection(t_main *var, t_coordinates *vector);
 t_coordinates				*select_best_move(t_main *var);
