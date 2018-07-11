@@ -6,7 +6,7 @@
 #    By: emaune <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/17 16:42:04 by emaune            #+#    #+#              #
-#    Updated: 2018/07/10 11:34:18 by emaune           ###   ########.fr        #
+#    Updated: 2018/07/10 12:42:33 by emaune           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = main.c set_token.c get_board_dimensions.c malloc_board.c update_board.c\
 	 read_piece.c find_valid_moves.c find_valid_moves_ext.c\
 	 select_best_move.c place_piece.c enemy_detection.c\
 	 read_and_play.c\
-	 O_strategy.c X_strategy.c update_graphic.c\
+	 o_strategy.c x_strategy.c lowest_distance.c update_graphic.c\
 	 draw_stuff.c misc.c
 
 CC = gcc

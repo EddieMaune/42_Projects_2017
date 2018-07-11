@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 14:37:35 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/09 11:39:24 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/10 15:17:37 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ int			find_valid_moves(t_main *var)
 {
 	int		y;
 	int		x;
-	//int		empty_piece_columns;
-	//int		empty_piece_rows;
 	int		moves;
 
 	y = 0;
@@ -97,6 +95,7 @@ int			find_valid_moves(t_main *var)
 					var->possible_moves->x = x;
 					var->possible_moves->y = y;
 					var->possible_moves->distance = enemy_detection(var, var->possible_moves);
+					var->possible_moves->bd = border_detection(var, var->possible_moves);
 				}
 				else
 				{
@@ -107,6 +106,7 @@ int			find_valid_moves(t_main *var)
 					var->index->x = x;
 					var->index->y = y;
 					var->index->distance = enemy_detection(var, var->index);
+					var->index->bd = border_detection(var, var->index);
 					var->index->next = NULL;
 				}
 				var->placement.x = x;

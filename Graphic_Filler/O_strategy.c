@@ -6,17 +6,17 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/15 11:20:23 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/15 12:48:11 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/10 12:43:30 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-t_coordinates        *go_northeast(t_main *var)
+t_coordinates		*go_northeast(t_main *var)
 {
-	t_coordinates           *a;
-	t_coordinates           *b;
-	t_coordinates           *ne;
+	t_coordinates	*a;
+	t_coordinates	*b;
+	t_coordinates	*ne;
 
 	a = var->possible_moves;
 	ne = a;
@@ -28,18 +28,17 @@ t_coordinates        *go_northeast(t_main *var)
 			ne = b;
 		}
 		else
-			break   ;
+			break ;
 		b = b->next;
 	}
 	return (ne);
 }
 
-
-t_coordinates        *max_x(t_main *var)
+t_coordinates		*max_x(t_main *var)
 {
-	t_coordinates           *a;
-	t_coordinates           *b;
-	t_coordinates           *max;
+	t_coordinates	*a;
+	t_coordinates	*b;
+	t_coordinates	*max;
 
 	a = var->possible_moves;
 	max = a;

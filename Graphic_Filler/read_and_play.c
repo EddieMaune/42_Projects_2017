@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 15:24:18 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/26 14:34:38 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/10 15:22:05 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void		read_and_play(t_main *var)
 			draw_grid(var->ren, var->board_dimensions.rows, var->board_dimensions.columns);
 			update_graphic(var->ren, var);
 			SDL_RenderPresent(var->ren);
-		//	usleep(12000);
+		//	usleep(82000);
+		//	sleep(1);
 			place_piece(var);
 			var->read_board = 0;
 			var->read_piece = 0;
