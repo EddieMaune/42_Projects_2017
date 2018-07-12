@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 12:09:35 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/10 15:27:17 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/12 11:29:51 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,5 @@ int			enemy_detection(t_main *var, t_coordinates	*vector)
 		}
 		radius++;
 	}
-	return (radius);
-}
-
-int			border_detection(t_main *var, t_coordinates *vector)
-{
-	int		radius;
-
-	radius = 1;
-	while (vector->x + radius < var->board_dimensions.columns &&
-			vector->y + radius < var->board_dimensions.rows &&
-			vector->y - radius > 0 &&
-			vector->x - radius > 0)
-		radius++;
 	return (radius);
 }

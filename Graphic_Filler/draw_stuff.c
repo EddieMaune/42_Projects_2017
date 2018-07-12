@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_stuff.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/12 13:55:10 by emaune            #+#    #+#             */
+/*   Updated: 2018/07/12 14:00:09 by emaune           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "include/header.h"
 
-void		draw_line(SDL_Renderer *ren, int x1, int y1, int x2, int y2)
+void			draw_line(SDL_Renderer *ren, int x1, int y1, int x2, int y2)
 {
-	double	slope;
-	double	offset;
-	int		iterate;
-	int		*a;
-	int		*b;
+	double		slope;
+	double		offset;
+	int			iterate;
+	int			*a;
+	int			*b;
 
 	slope = 0;
 	offset = 0;
@@ -37,35 +49,35 @@ void		draw_line(SDL_Renderer *ren, int x1, int y1, int x2, int y2)
 	}
 }
 
-void		draw_rect(SDL_Renderer *ren, int x, int y, int w, int h)
+void			draw_rect(SDL_Renderer *ren, int x, int y, int w, int h)
 {
 	draw_line(ren, x, y, x + w, y);
 	y += h;
 	draw_line(ren, x, y, x + w, y);
 	y -= h;
-	draw_line(ren, x, y, x, y + h );
+	draw_line(ren, x, y, x, y + h);
 	x += w;
 	draw_line(ren, x, y, x, y + h);
 }
 
-void		fill_rect(SDL_Renderer *ren, int x, int y, int w, int h)
+void			fill_rect(SDL_Renderer *ren, int x, int y, int w, int h)
 {
-	int     x2;
+	int			x2;
 
 	x2 = x + 1;
 	while (x2 <= x + w - 2)
 	{
-		draw_line(ren, x2, y + 1, x2, y + h - 2 );
+		draw_line(ren, x2, y + 1, x2, y + h - 2);
 		x2++;
 	}
 }
 
-void	draw_grid(SDL_Renderer *ren, double rows, double columns)
+void			draw_grid(SDL_Renderer *ren, double rows, double columns)
 {
-	int		x;
-	int		y;
-	int		x2;
-	int		y2;
+	int			x;
+	int			y;
+	int			x2;
+	int			y2;
 
 	y = 0;
 	y2 = 0;
@@ -76,9 +88,9 @@ void	draw_grid(SDL_Renderer *ren, double rows, double columns)
 		while (x < 700 && x2 < columns)
 		{
 			SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
-			draw_rect(ren, x, y, 700/columns, 900/rows);
+			draw_rect(ren, x, y, 700 / columns, 900 / rows);
 			SDL_SetRenderDrawColor(ren, 195, 195, 195, 255);
-			fill_rect(ren, x, y, 700/columns, 900/rows);
+			fill_rect(ren, x, y, 700 / columns, 900 / rows);
 			x += 700 / columns;
 			x2++;
 		}
