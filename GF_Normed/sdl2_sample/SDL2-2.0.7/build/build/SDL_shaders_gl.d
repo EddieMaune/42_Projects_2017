@@ -1,0 +1,23 @@
+build/SDL_shaders_gl.lo: \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/src/render/opengl/SDL_shaders_gl.c \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/src/render/opengl/../../SDL_internal.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/src/render/opengl/../../dynapi/SDL_dynapi.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/src/render/opengl/../../dynapi/SDL_dynapi_overrides.h \
+  include/SDL_config.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_platform.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/begin_code.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/close_code.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_stdinc.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_config.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_log.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_opengl.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_opengl_glext.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_video.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_pixels.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_endian.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_rect.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_error.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_rwops.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_surface.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/include/SDL_blendmode.h \
+  /goinfre/emaune/Desktop/sdl2_sample/SDL2-2.0.7/src/render/opengl/SDL_shaders_gl.h
