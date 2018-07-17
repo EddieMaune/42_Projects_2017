@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 11:32:20 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/13 16:48:37 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/17 10:38:54 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char			**update_board(t_main *var)
 		ft_putendl_fd(var->board[y], var->fd);
 		free(var->line);
 		y++;
-		
 	}
 	return (var->board);
 }

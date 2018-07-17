@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/15 12:48:20 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/17 08:30:27 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/17 10:50:26 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ t_coordinates		*go_southwest(t_main *var)
 	b = a->next;
 	while (b)
 	{
-			if (b->y >= a->y && sw->y >= a->y)
-				sw = b;
-			b = b->next; 
+		if (b->y >= a->y && sw->y >= a->y)
+			sw = b;
+		b = b->next;
 	}
 	while (a)
 	{
