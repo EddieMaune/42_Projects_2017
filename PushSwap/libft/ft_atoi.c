@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 00:23:52 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/07 12:07:12 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/22 14:42:08 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_atoi(const char *str)
 {
 	int i;
 	int sign;
-	int result;
+	long result;
 
 	i = 0;
 	sign = 1;

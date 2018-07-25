@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 16:42:51 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/23 15:24:48 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,16 @@ int			main(int argc, char **argv)
 {
 	t_main	var;
 
-	init_stacks(argc, argv, &var);
-	print_stack(var.a);
+	if (argc >= 2)
+	{
+		push_arguments_to_stack(&var, argc, argv);
+		error_check_stack(&var);
+		print_stack(var.a);
+		ft_putendl("");
+		sa_and_sb(&var, var.a, var.b);
+		print_stack(var.a);
+		ft_putendl("");
+		rev_print_stack(var.a);
+	}
 	return (0);
 }

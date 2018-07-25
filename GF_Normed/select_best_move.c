@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 13:33:38 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/17 09:02:31 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/17 11:06:38 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ t_coordinates				*x_algo_small_medium_board(t_main *var)
 	static int				i = 1;
 
 	best_move = lowest_distance(var);
-	if (!reached_border(var))
+/*	if (!reached_border(var))
 	{
 		if (i % 2 == 0 && best_move->distance >= 15)
 			best_move = min_x(var);
 	}
 	else if (i % 2 == 0 && best_move->distance >= 10)
-		best_move = go_northeast(var);
+		best_move = go_northeast(var);*/
 	i++;
 	print_pm(var);
 	var->placement.x = best_move->x;

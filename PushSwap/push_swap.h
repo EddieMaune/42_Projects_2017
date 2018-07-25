@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:36:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 16:39:46 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/23 11:34:42 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,31 @@ typedef struct		s_main
 	t_stack			*b;
 	char			**args;
 	int				ac;
-	int				arg_is_string;
+	int				is_split;
 }					t_main;
 
-void				init_stacks(int argc, char **argv, t_main *var);
-void				check_if_args_are_ints(int argc, char **argv, int ais);
+/*
+** Initialize stack a and error check arguments/stack
+*/
+
+int					count_args(char **args);
+void				check_if_args_are_ints(t_main *var, int argc, char **argv);
+t_stack				*store_arguments(t_stack *a, int argc, char **argv);
+void				init_stacks(t_main *var);
+void				push_arguments_to_stack(t_main *var, int argc, char **argv);
+int					has_dups(t_stack *stack);
+void				free_stack(t_stack *stack);
+void				error_check_stack(t_main *var);
+
+/*
+**	Operations
+*/
+
+int					stack_len(t_stack *stack);
+t_stack				*swap_a(t_stack *a);
+t_stack				*swap_b(t_stack *b);
+void				sa_and_sb(t_main *var, t_stack *a, t_stack *b);
 void				print_stack(t_stack *stack);
-t_stack				*store_arguments(t_stack *a, int argc, char **argv, int ais);
+void				rev_print_stack(t_stack *stack);
 
 #endif

@@ -6,20 +6,17 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/07 14:55:10 by emaune            #+#    #+#             */
-/*   Updated: 2018/06/10 16:32:18 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/23 10:43:15 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int		arguments_are_integers(int argc, char **argv, int ais)
+static int		arguments_are_integers(int argc, char **argv)
 {
 	int			i;
 
-	if (ais)
-		i = 0;
-	else
-		i = 1;
+	i = 0;
 	while (i < argc)
 	{
 		if (!ft_isnum(argv[i]))
@@ -31,11 +28,13 @@ static int		arguments_are_integers(int argc, char **argv, int ais)
 	return (1);
 }
 
-void			check_if_args_are_ints(int argc, char	**argv, int ais)
+void			check_if_args_are_ints(t_main *var, int argc, char	**argv)
 {
-	if (!arguments_are_integers(argc, argv, ais))
+	if (!arguments_are_integers(argc, argv))
 	{
 		ft_puterror("Error");
-		exit(0);
+		if (var->is_split)
+			ft_free_split(argv);
+		exit(-1);
 	}
 }

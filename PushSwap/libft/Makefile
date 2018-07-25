@@ -6,7 +6,7 @@
 #    By: emaune <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/30 08:12:27 by emaune            #+#    #+#              #
-#    Updated: 2018/06/08 15:20:04 by emaune           ###   ########.fr        #
+#    Updated: 2018/07/23 10:02:20 by emaune           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memccpy.c\
 	  ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 	  ft_lstiter.c ft_lstmap.c\
 	  ft_isupper.c ft_islower.c ft_strrev.c ft_isspace.c\
-	  get_next_line.c
+	  get_next_line.c ft_free_split.c
 
 OBJ = $(SRC:.c=.o)
 
