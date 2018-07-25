@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:36:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/23 11:34:42 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/25 13:28:39 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int					stack_len(t_stack *stack);
 t_stack				*swap_a(t_stack *a);
 t_stack				*swap_b(t_stack *b);
 void				sa_and_sb(t_main *var, t_stack *a, t_stack *b);
+void				push_a(t_main *var);
+void				push_b(t_main *var);
 void				print_stack(t_stack *stack);
 void				rev_print_stack(t_stack *stack);
 

@@ -6,7 +6,7 @@
 #    By: emaune <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/17 16:42:04 by emaune            #+#    #+#              #
-#    Updated: 2018/07/23 11:17:20 by emaune           ###   ########.fr        #
+#    Updated: 2018/07/25 13:28:55 by emaune           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ PUSH_SWAP = push_swap
 
 SRC_1 = main_checker.c check_arguments.c init_stacks.c store_arguments.c\
 		print_stack.c count_args.c push_arguments_to_stack.c free_stack.c\
-		has_dups.c error_check_stack.c stack_len.c swap.c
+		has_dups.c error_check_stack.c stack_len.c swap.c push.c
 
 SRC_2 = main_push_swap.c
 

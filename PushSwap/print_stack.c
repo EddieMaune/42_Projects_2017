@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 16:37:00 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/23 11:23:20 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/25 13:31:56 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void			print_stack(t_stack *stack)
 {
+	if (!stack)
+		ft_putstr("Empty");
 	while (stack)
 	{
 		ft_putnbr(stack->num);
