@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:35:33 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/26 12:23:57 by emaune           ###   ########.fr       */
+/*   Created: 2018/07/26 11:37:34 by emaune            #+#    #+#             */
+/*   Updated: 2018/07/26 11:42:12 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			main(int argc, char **argv)
+int				is_sorted(t_stack *stack)
 {
-	t_main	var;
+	t_stack		*i;
+	t_stack		*j;
 
-	if (argc >= 2)
+	i = stack;
+	while (i)
 	{
-		push_arguments_to_stack(&var, argc, argv);
-		error_check_stack(&var);
-		read_instructions(&var);
+		j = i->next;
+		while (j)
+		{
+			if (i->num > j->num)
+				return (0);
+			j = j->next;	
+		}
+		i = i->next;
 	}
-	ft_putendl("KO");
-	return (0);
+	return (1);
 }

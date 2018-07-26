@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 10:51:17 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/25 14:13:01 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/26 10:26:28 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_stack		*swap_a(t_stack *a)
 		temp->next = a->next;
 		a->next = temp;
 		a->prev = NULL;
-		temp->next->prev = temp;
+		if (temp->next)
+			temp->next->prev = temp;
 		temp->prev = a;
 	}
 	return (a);
@@ -40,7 +41,8 @@ t_stack		*swap_b(t_stack *b)
 		temp->next = b->next;
 		b->next = temp;
 		b->prev = NULL;
-		temp->next->prev = temp;
+		if (temp->next)
+			temp->next->prev = temp;
 		temp->prev = b;
 	}
 	return (b);

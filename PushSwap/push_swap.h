@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:36:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/25 13:28:39 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/26 12:23:04 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_main
 	char			**args;
 	int				ac;
 	int				is_split;
+	char			*line;
 }					t_main;
 
 /*
@@ -55,7 +56,15 @@ t_stack				*swap_b(t_stack *b);
 void				sa_and_sb(t_main *var, t_stack *a, t_stack *b);
 void				push_a(t_main *var);
 void				push_b(t_main *var);
+void				rotate_a(t_main *var);
+void				rotate_b(t_main *var);
+void				rev_rotate_a(t_main *var);
+void				rev_rotate_b(t_main *var);
+void				ra_and_rb(t_main *var);
+void				rra_and_rrb(t_main *var);
+int					is_sorted(t_stack *stack);
 void				print_stack(t_stack *stack);
 void				rev_print_stack(t_stack *stack);
+void				read_instructions(t_main *var);
 
 #endif
