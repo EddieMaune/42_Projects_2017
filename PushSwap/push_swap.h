@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:36:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/26 12:23:04 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/27 15:42:49 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,12 @@ void				rev_rotate_b(t_main *var);
 void				ra_and_rb(t_main *var);
 void				rra_and_rrb(t_main *var);
 int					is_sorted(t_stack *stack);
+int					is_nsorted(t_stack *stack, int len);
+int					is_sorted_descending(t_stack *stack);
+int					is_nsorted_descending(t_stack *stack, int len);
 void				print_stack(t_stack *stack);
 void				rev_print_stack(t_stack *stack);
 void				read_instructions(t_main *var);
+void				sort_stack(t_main *var);
 
 #endif

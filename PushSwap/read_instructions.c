@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/26 11:55:25 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/26 13:41:31 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/29 13:14:46 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,6 @@ void			read_instructions(t_main *var)
 	while ((!is_sorted(var->a) || stack_len(var->b)) && get_next_line(0, &var->line))
 	{
 		execute_instruction(var->line, var);
-		print_stack(var->a);
-		ft_putendl("");
-		print_stack(var->b);
 		if (is_sorted(var->a) && !stack_len(var->b))
 		{
 			ft_strdel(&var->line);
