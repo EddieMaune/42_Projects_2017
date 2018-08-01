@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   update_dist.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:34:51 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/30 13:34:38 by emaune           ###   ########.fr       */
+/*   Created: 2018/07/31 14:45:29 by emaune            #+#    #+#             */
+/*   Updated: 2018/07/31 15:27:30 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			main(int argc, char **argv)
+void			update_dist(t_main *var)
 {
-	t_main	var;
+	t_stack		*a;
 
-	if (argc >= 2)
+	a = var->a;
+	while (a)
 	{
-		push_arguments_to_stack(&var, argc, argv);
-		error_check_stack(&var);
-	//	if (is_sorted(var.a->next))
-	//		ft_putendl("sorted");
-		sort_stack(&var);
+		a->dist = dist_to_top(var->a, a->num) + 1 + dist_to_sort(var->b, a->num);
+		a = a->next;
 	}
-	return (0);
 }

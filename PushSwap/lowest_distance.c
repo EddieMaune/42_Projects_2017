@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   lowest_distance.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:34:51 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/30 13:34:38 by emaune           ###   ########.fr       */
+/*   Created: 2018/07/31 15:39:02 by emaune            #+#    #+#             */
+/*   Updated: 2018/07/31 15:41:56 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			main(int argc, char **argv)
+int			lowest_distance(t_stack *stack)
 {
-	t_main	var;
+	t_stack	*x;
+	t_stack	*y;
+	int		min;
 
-	if (argc >= 2)
+	x = stack;
+	min = x->num;
+	while (x)
 	{
-		push_arguments_to_stack(&var, argc, argv);
-		error_check_stack(&var);
-	//	if (is_sorted(var.a->next))
-	//		ft_putendl("sorted");
-		sort_stack(&var);
+		y = x->next;
+		while (y)
+		{
+			if (y->num < min)
+				min = y->num;
+			y = y->next;	
+		}
 	}
-	return (0);
+	return (min);
 }

@@ -6,7 +6,7 @@
 /*   By: emaune <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:36:36 by emaune            #+#    #+#             */
-/*   Updated: 2018/07/27 15:42:49 by emaune           ###   ########.fr       */
+/*   Updated: 2018/07/31 15:42:20 by emaune           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct		s_stack
 {
 	int				num;
+	int				dist;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
@@ -70,5 +71,18 @@ void				print_stack(t_stack *stack);
 void				rev_print_stack(t_stack *stack);
 void				read_instructions(t_main *var);
 void				sort_stack(t_main *var);
+void				sort_small_stack(t_main *var);
+void				sort_big_stack(t_main *var);
+int					number_at_bottom(t_stack *stack);
+void				sb_rb(t_main *var, int *f);
+void				rrb_pa(t_main *var, int *f);
+void				ra_rra(t_main *var, int *f);
+void				sa_ss(t_main *var, int *f);
+void				rr_rrr(t_main *var, int *f);
+t_stack				*link_at_bottom(t_stack *stack);
+int					dist_to_top(t_stack *stack, int num);
+void				update_dist(t_main *var);
+int					dist_to_sort(t_stack *stack, int num);
+int					lowest_distance(t_stack *stack);
 
 #endif
